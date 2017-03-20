@@ -7,10 +7,10 @@
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
-            "args": ["--extensionDevelopmentPath=${workspaceRoot}/vscodeextn" ],
+            "args": ["--extensionDevelopmentPath=${workspaceRoot}/src/vscodeextn" ],
             "stopOnEntry": false,
             "sourceMaps": true,
-            "outFiles": [ "${workspaceRoot}/vscodeextn/out/src/**/*.js" ],
+            "outFiles": [ "${workspaceRoot}/src/vscodeextn/out/src/**/*.js" ],
             "preLaunchTask": "npm"
         },
         {
@@ -18,10 +18,10 @@
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
-            "args": ["--extensionDevelopmentPath=${workspaceRoot}/vscodeextn", "--extensionTestsPath=${workspaceRoot}/vscodeextn/out/test" ],
+            "args": ["--extensionDevelopmentPath=${workspaceRoot}/src/vscodeextn", "--extensionTestsPath=$/src/{workspaceRoot}/vscodeextn/out/test" ],
             "stopOnEntry": false,
             "sourceMaps": true,
-            "outFiles": [ "${workspaceRoot}/vscodeextn/out/test/**/*.js" ],
+            "outFiles": [ "${workspaceRoot}/src/vscodeextn/out/test/**/*.js" ],
             "preLaunchTask": "npm"
         }
     ]
