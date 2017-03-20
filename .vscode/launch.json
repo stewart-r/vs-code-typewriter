@@ -3,6 +3,17 @@
     "version": "0.1.0",
     "configurations": [
         {
+            "name": "Attach to WebApi",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildWebApp",
+            "program": "${workspaceRoot}/src/VsCodeTypewriter.WebApi/bin/Debug/netcoreapp1.1/VsCodeTypewriter.WebApi.dll",
+            "args": [],
+            "cwd":"${workspaceRoot}",
+            "stopAtEntry": false,
+            "externalConsole":false
+        },
+        {
             "name": "Launch Extension",
             "type": "extensionHost",
             "request": "launch",
