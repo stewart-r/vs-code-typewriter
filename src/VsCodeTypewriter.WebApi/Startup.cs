@@ -30,7 +30,8 @@ namespace VsCodeTypewriter.WebApi
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello Wrld!");
+                var ret = DateTime.Now;
+                await context.Response.WriteAsync("Hello Wrld! " + ret);
             });
         }
     }

@@ -1,27 +1,26 @@
 'use strict';
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { TypewriterLanguageProvider } from './TypewriterLanguageProvider'
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+const disposables: vscode.Disposable[] = [];
+
+let windowUri = vscode.Uri.parse(`il-viewer://authority/${TypewriterLanguageProvider.Scheme}`);
+
 export function activate(context: vscode.ExtensionContext) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "vs-code-typewriter" is now active!');
+    console.log('activating...');
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
-
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+    let invokationDisposable = vscode.commands.registerCommand('extension.showOutput', () => {
+        return vscode.commands.executeCommand('vscode.previewHtml', windowUri, vscode.ViewColumn.Two, 'output').then((success) => {
+        }, (reason) => {
+            vscode.window.showErrorMessage("There's been an error: " + reason);
+        });
     });
+    disposables.push(invokationDisposable);
 
-    context.subscriptions.push(disposable);
+    let provider = new TypewriterLanguageProvider(windowUri);
+    let providerDisposable = vscode.workspace.registerTextDocumentContentProvider(TypewriterLanguageProvider.Scheme, provider);
+    disposables.push(providerDisposable);
 }
 
 // this method is called when your extension is deactivated
