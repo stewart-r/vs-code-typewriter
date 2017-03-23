@@ -16,7 +16,7 @@
         {
             "taskName": "npm",
             "command": "npm",
-            "args": ["--prefix", "src/vscodeextn", "run", "compile", "--loglevel", "silent"],
+            "args": ["--prefix", "./src/vscodeextn", "run", "compile", "--loglevel", "silent"],
             "isBackground": true,
             "problemMatcher": "$tsc-watch"
         },
