@@ -25,6 +25,7 @@
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -watch -p ./",
+    "precompile":"./node_modules/.bin/copy  ../VsCodeTypewriter.WebApi/bin/Debug/netcoreapp1.1/*.* ./server/",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "node ./node_modules/vscode/bin/test"
   },

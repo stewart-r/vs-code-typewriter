@@ -13,3 +13,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 .deploy/
+
+#Server files generated at bbuild time
+/src/vscodeextn/server
