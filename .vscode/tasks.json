@@ -18,6 +18,9 @@
             "command": "npm",
             "args": ["--prefix", "./src/vscodeextn", "run", "compile", "--loglevel", "silent"],
             "isBackground": true,
+            "isShellCommand":true,
+            "showOutput": "always",
+            "isBuildCommand": true,
             "problemMatcher": "$tsc-watch"
         },
         {

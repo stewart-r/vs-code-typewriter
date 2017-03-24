@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
     let providerDisposable = vscode.workspace.registerTextDocumentContentProvider(TypewriterLanguageProvider.Scheme, provider);
     disposables.push(providerDisposable);
 
-    let extnPath = vscode.extensions.getExtension("stewart-r.vs-code-typewriter").extensionPath.replace('\\','/');
+    let extnPath = vscode.extensions.getExtension("stewart-r.vs-code-typewriter").extensionPath;
 
     const fullPath = path.join(extnPath, "server","VsCodeTypewriter.WebApi.dll");
     fs.exists(fullPath, function(exists){
